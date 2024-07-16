@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>CiNii Researchでデータをを探す</title>
+</head>
+
+<body>
+
+    <!-- ヘッダはじめ -->
+      <div>
+      <header>
+        <img src="baner.png" alt="バナー">
+        <h1>CiNii Researchで論文を探す</h1>
+      </header>
+      </div>
+    <!-- ヘッダ終わり -->
+
+        <!-- サイドメニューはじめ -->
+        <div id="side">
+          メニュー
+          <ul>
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="news.html">ニュース</a></li>
+            <li><a href="inquiry_form.html">問い合わせフォーム</a></li>
+          </ul>
+        </div>
+        <!-- サイドメニュー終わり -->
+
+        <!-- メインコンテンツはじめ -->
+        <div id="main">
+          <!-- 検索フォーム -->
+          <div id="form">
+            <div>
+              検索窓
+              <input type="search" id="key" onkeypress="enterkey_down(event.key);">
+            </div>
+            <div>
+              <select id="field">
+                <option value="q">全ての項目</option>
+                <option value="title">タイトル</option>
+                <option value="creator">人物・団体名</option>
+                <option value="affiliation">所属機関</option>
+              </select>
+            </div>
+            <div>
+              <button onclick="search()">検索</button>
+            </div>
+          </div>
+          <!-- 利用ガイド -->
+          <div id="guide">
+            利用可能な検索フィールド
+            <table border="1">
+              <tr>
+                <th>選択肢</th>
+                <th>説明</th>
+              </tr>
+              <tr>
+                <td>全ての項目</td>
+                <td>全ての項目から検索します</td>
+              </tr>
+              <tr>
+                <td>タイトル</td>
+                <td>書誌のタイトルから検索します</td>
+              </tr>
+              <tr>
+                <td>人物・団体名</td>
+                <td>人物・団体名から検索します</td>
+              </tr>
+              <tr>
+                <td>所属機関</td>
+                <td>所属機関から検索します</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <!-- メインコンテンツおわり -->
+    <!-- HTMLはここまで -->
+
+    <!-- 検索用コード -->
+    <script type="text/javascript">
+      <!--
+      function search() {
+        // ベースとなるURLを設定
+        let endpoint  = 'https://cir.nii.ac.jp/ja/all';
+        // フォームからキーワードを入手
+        let keyword = document.getElementById("key").value;
+        let field = document.getElementById("field").value;
+        // フォームにキーワード書き戻し（入力したキーワードが消えないようにする
+        document.getElementById("key").value = keyword;
+        // キーワードが空のときはアラートを出す
+        if (keyword == "") { alert("キーワードを入れてください"); }
+        else {
+          let URI_parameter = "";
+          let SEARCH_URL    = "";
+          // UTF8 でURIエンコード
+          URI_parameter = encodeURI(keyword);
+          if (field != "") {
+            URI_parameter = field + '=' + URI_parameter;
+          }
+          URI_parameter = '?' + URI_parameter;
+          SEARCH_URL = endpoint.concat(URI_parameter);
+          window.open(SEARCH_URL, "_blank");
+        }
+      }
+      function enterkey_down(key) {
+        if(key === "Enter"){
+          search();
+        }
+      }
+      //-->
+    </script>
+  </body>
+</html>

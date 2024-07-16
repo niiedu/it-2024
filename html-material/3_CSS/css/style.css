@@ -1,0 +1,26 @@
+.collection {
+    color:green;
+    font-family: "YuGothic","Yu Gothic","Meiryo","ヒラギノ角ゴ","sans-serif";
+    font-size: 20px;
+}
+header {
+    color:orange;
+    height: 100px;
+}
+#side {
+    color:red;
+    background-color: yellow;
+    width: 100px;
+    border: solid;
+}
+h1 {
+    text-align: center;
+    color: red;
+}
+
+body {background-image: url("../sinobazu_pond.jpg"); background-size: cover;}
+
+#main {
+    position: absolute;  top: 100px; left: 100px;
+    margin: 0 0 20px 20px;
+}
