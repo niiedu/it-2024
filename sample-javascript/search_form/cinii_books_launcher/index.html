@@ -1,0 +1,134 @@
+<html>
+<head>
+<meta HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<title>CiNII Books ランチャー</title>
+<script type="text/javascript">
+<!--
+function Move(com) {
+    var ncid_url     = 'http://ci.nii.ac.jp/ncid/';
+    var author_url   = 'http://ci.nii.ac.jp/author/';
+    var url;
+
+    var id_list = document.getElementById("id_list").value;
+    var count   = document.getElementById("count").value;
+    count = parseInt(count);
+    var ids = id_list.split("\n");
+
+    if (com == "next") {
+       if (ids.length <= count + 1) {
+           document.getElementById("now").value = 'End';
+           exit;
+       }
+       else {
+           count = count + 1;
+       }
+    }
+    if (com == "prev") {
+       count = count - 1;
+       if (count < 0) {
+           count = 0;
+       }
+    }
+    var id = ids[count];
+    id = id.replace(/\r\n/g, "");
+    id = id.replace(/\n/g, "");
+    id = id.replace(/\r/g, "");
+
+    if  ((id.substr(0, 2) == 'AA') ||
+         (id.substr(0, 2) == 'BA') ||
+         (id.substr(0, 2) == 'AN') ||
+         (id.substr(0, 2) == 'BA') ||
+         (id.substr(0, 2) == 'BN') ||
+         (id.substr(0, 2) == 'BB')) {
+       url = ncid_url + id;
+    }
+    if  (id.substr(0, 2) == 'DA') { 
+       url = author_url + id;
+    }
+    if ((url == "") || (id.length < 10)
+       || !(id.match("^[ABD][ABN][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9X]$"))) {
+       alert(id + "不正なIDです");
+    } 
+    else {
+        window.open(url, "CiNII"); 
+        document.getElementById("now").value = id;
+    }
+    document.getElementById("count").value = count;
+}
+
+function Clear() {
+    document.getElementById("id_list").value = "";
+    document.getElementById("count").value   = "-1";
+    document.getElementById("now").value     = "";
+}
+// -->
+</SCRIPT>
+</head>
+<body>
+<h1><font color="blue">CiNII Books ランチャー</font></h1>
+&nbsp;<h2>CiNII Booksの書籍をお手持ちのNC書誌IDリストもしくは著者名典拠リスト順に見ることができます<br />(別タブが開いたときは、Webブラウザの機能で別ウインドウ表示に切り替えると使いやすくなります）</h2>
+<font color="blue">NC書誌IDリストもしくはCiNII Booksの著者名典拠IDリスト(改行区切)を張り付けます </font><br /> 
+&nbsp;&nbsp;<textarea type="text" name="id_list" id="id_list" cols=20 rows=3></textarea>
+<input type="hidden" id="count" value="-1">
+<input type="button" value="次を表示" onClick='Move("next")'>
+&nbsp;&nbsp;
+<input type="button" value="前を表示" onClick='Move("prev")'>
+&nbsp;&nbsp;
+<input type="button" value="最初から" onClick="Clear()">
+&nbsp;&nbsp;現在処理中のID: 
+<input type="text" style="background-color:#7fffd4" readonly="readonly" id="now" size="25"> <br />
+<div id="contener"></div>
+<div id="footer">
+<div id="sample">
+<hr /><p />
+お試し用NCIDリスト<br />
+<textarea readonly="readonly" style="background-color:#D4D0C8" rows=5>
+BB06769385
+BB05234950
+BA74426079
+BA8729129X
+BA70602919
+BA91677461
+BA76551763
+BA74062096
+BA88022169
+BA89827299
+BB02315681
+BB0502977X
+BA7635155X
+BA85589552
+BA66712582
+BA8038010X
+BA85388299
+BA80537631
+BA90222466
+BB06838819
+BA83433439
+BA70172241
+</textarea>
+<br />
+お試し用著者典拠IDリスト<br />
+<textarea readonly="readonly" style="background-color:#D4D0C8" rows=5>
+DA10694380
+DA02249065
+DA08916242
+DA16859381
+DA11606731
+DA16832308
+DA06146927
+DA12236252
+DA09699525
+DA0797439X
+DA05665510
+DA12859437
+DA12859437
+</textarea>
+</div>
+
+<hr /><p />
+<a href="../products.html">「図書系職員のためのアプリケーション開発講習会成果一覧に戻る</A>
+<hr />
+<p />
+Copyright (C) 2011 Akira Maeda All Rights Reserved. <P />
+</body>
+</html>

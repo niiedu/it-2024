@@ -1,0 +1,11 @@
+.sort.asc, .sort.desc {
+  background-color:rgba(46, 242, 64, 0.38);
+}
+.sort.asc::after {
+  content: "▲";
+  padding-left: 3px;
+}
+.sort.desc::after {
+  content: "▼";
+  padding-left: 3px
+}

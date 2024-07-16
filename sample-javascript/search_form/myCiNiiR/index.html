@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <title>勝手CiNii Research検索窓</title>
+  </head>
+<body>
+  <div class="container">
+    <h1>勝手CiNii Research検索窓</h1>
+
+    <!------■検索フォームはじめ■------>
+    <p class="lead">検索窓</p>
+    <div class="row">
+      <div class="col-md-8 form-group">
+        <input type="search" class="form-control form-control-lg" size="50" id="key" onkeypress="enterkey_down(event.key);">
+      </div>
+      <div class="col-md-4 form-group">
+        <select class="form-control custom-select" id="field">
+          <option value="q">全ての項目</option>
+          <option value="title">タイトル</option>
+          <option value="creator">人物・団体名</option>
+          <option value="affiliation">所属機関</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-primary w-25 btn-lg" onclick="search()">検索</button>
+    <!------■フォームおわり■------>
+  </div>
+
+  <!-- 検索用コード -->
+  <script type="text/javascript">
+    <!--
+    function search() {
+      // ベースとなるURLを設定
+      let endpoint  = 'https://cir.nii.ac.jp/ja/all';
+      // フォームからキーワードを入手
+      let keyword = document.getElementById("key").value;
+      let field = document.getElementById("field").value;
+      // フォームにキーワード書き戻し（入力したキーワードが消えないようにする
+      document.getElementById("key").value = keyword;
+      // キーワードが空のときはアラートを出す
+      if (keyword === "") { alert("キーワードを入れてください"); }
+      else {
+        let URI_parameter = "";
+        let SEARCH_URL    = "";
+        // UTF8 でURIエンコード
+        URI_parameter = encodeURI(keyword);
+        if (field !== "") {
+          URI_parameter = field + '=' + URI_parameter;
+        }
+        URI_parameter = '?' + URI_parameter;
+        SEARCH_URL = endpoint.concat(URI_parameter);
+        window.open(SEARCH_URL, "_blank");
+      }
+    }
+    function enterkey_down(key) {
+      if(key === "Enter"){
+        search();
+      }
+    }
+    //-->
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+  </body>
+</html>

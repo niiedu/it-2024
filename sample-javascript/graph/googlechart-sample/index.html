@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>Google Chartによるサービス月次統計グラフ</title>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script>
+    google.load('visualization', '1', {
+      'packages': ['corechart']
+    });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      let data = google.visualization.arrayToDataTable([
+        ['月', '件数'],
+        ['4月', 10721],
+        ['5月', 2225],
+        ['6月', 3161],
+        ['7月', 3192],
+        ['8月', 3113],
+        ['9月', 4568],
+        ['10月', 8558],
+        ['11月', 16636],
+        ['12月', 2915],
+        ['1月', 1976],
+        ['2月', 2121],
+        ['3月', 3173]
+      ]);
+      let options = {
+        title: 'サービスアクセス件数'
+      };
+      let chart = new google.visualization.ColumnChart(document.getElementById('chart_draw'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Google Chartによるサービス月次統計グラフ</h1>
+  <div id="chart_draw" style="width: 100%; height: 500px"></div>
+  <div>
+    参考 <a href="https://www.petitmonte.com/javascript/chart_columnchart.html">[Google Charts]棒グラフを作成する</a>
+  </div>
+</body>
+
+</html>

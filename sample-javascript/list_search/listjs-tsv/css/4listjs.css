@@ -1,0 +1,15 @@
+/*  bootstrapを使えば不要
+ul.pagination li {
+    display: inline-block;
+    text-align: center;
+    font-size:16px;
+    margin: 0 0 0 1em;
+    padding: 1;
+}
+/* ul {
+    list-style: none;
+}
+*/
+.horizon {
+    border-bottom: 1px solid;
+}

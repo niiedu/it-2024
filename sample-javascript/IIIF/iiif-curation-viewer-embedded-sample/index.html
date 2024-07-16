@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>IIIF Curation Viewer Embedded Example</title>
+</head>
+<body>
+  <div style="width: 80%; margin: auto;">
+    <h1>IIIF Curation Viewer Embedded 利用例</h1>
+    <h2>東京大学総合図書館所蔵「田中芳男・博物学コレクション」より</h2>
+    <h3>博物帖</h3>
+    <div id="image_canvas1" style="height: 300px; width: 500px;"></div>
+    <h3>「物産宝庫 甲二十」</h3>
+    <div id="image_canvas2" style="height: 300px; width: 500px"></div>
+    <hr>
+    IIIF Curation Viewer Embedded v1.3（MIT ライセンス)を使った画像表示のサンプルです。<br>
+    <a href="http://codh.rois.ac.jp/software/iiif-curation-viewer-embedded/">http://codh.rois.ac.jp/software/iiif-curation-viewer-embedded/</a>
+    <link rel="stylesheet" href="iiif-curation-viewer-embedded/icviewer-embedded.bundle.css">
+    <script src="iiif-curation-viewer-embedded/icviewer-embedded.bundle.min.js"></script>
+    <script>
+      (function() {
+        IIIFCurationViewerEmbedded({
+          id: 'image_canvas1',
+          data: {
+            manifest: 'https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/1cf47d2f-3c9f-4466-b632-f9a431789234/manifest',
+            canvas: 'http://codh.rois.ac.jp/pmjt/iiif/200014778/canvas/00023#xywh=3430,2460,870,760'
+          }
+        });
+      })();
+    </script>
+    <script>
+      (function() {
+        IIIFCurationViewerEmbedded({
+          id: 'image_canvas2',
+          data: {
+            manifest: 'https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/8688bcf1-1fd9-29f6-15fc-a94718880c98/manifest',
+            canvas: 'http://codh.rois.ac.jp/pmjt/iiif/200014778/canvas/00023#xywh=3430,2460,870,760'
+          }
+        });
+      })();
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>List.jsでソート可能な新着図書一覧表</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link media="all" href="css/tablesort.css" type="text/css" rel="stylesheet">
+</head>
+
+<body class="container">
+  <h1>List.jsでソート可能な新着図書一覧表</h1>
+  テーブル各カラムの見出しをクリックすると表のソートを行います。
+  <div id="books">
+    <table border="1" class="table table-bordered table-striped text-nowrap">
+      <thead>
+        <tr>
+          <th class="sort" data-sort="date">配架日</th>
+          <th class="sort" data-sort="ndc">NDC</th>
+          <th class="sort" data-sort="title">書名</th>
+          <th class="sort" data-sort="publisher">出版社</th>
+        </tr>
+      </thead>
+      <tbody class="list">
+        <tr>
+          <td class="date">2021-06-25</td>
+          <td class="ndc">686.216</td>
+          <td class="title">すごいぞ!関西ローカル鉄道物語</td>
+          <td class="publisher">辰巳出版</td>
+        </tr>
+        <tr>
+          <td class="date">1999-08-23</td>
+          <td class="ndc">686.213</td>
+          <td class="title">線路は未来へつづく : 常磐線の100年</td>
+          <td class="publisher">東日本旅客鉄道水戸支社</td>
+        </tr>
+        <tr>
+          <td class="date">2015-03-04</td>
+          <td class="ndc">291.35</td>
+          <td class="title">流山電鉄七十八年 : ぬくもりの香る町と人の物語</td>
+          <td class="publisher">総武流山電鉄</td>
+        </tr>
+        <tr>
+          <td class="date">1980-12-09</td>
+          <td class="ndc">681.8</td>
+          <td class="title">路面電車からトラムへ : フランスの都市交通政策の挑戦</td>
+          <td class="publisher">晃洋書房</td>
+        </tr>
+        <tr>
+          <td class="date">2012-01-16</td>
+          <td class="ndc">686.91361</td>
+          <td class="title">東京モノレールのすべて</td>
+          <td class="publisher">戎光祥出版</td>
+        </tr>
+        <tr>
+          <td class="date">2020-05-24</td>
+          <td class="ndc">726.6</td>
+          <td class="title">山にのぼる機関車</td>
+          <td class="publisher">ポプラ社</td>
+        </tr>
+        <tr>
+          <td class="date">2011-05-14</td>
+          <td class="ndc">686.21</td>
+          <td class="title">鉄道は都市をどう変えるのか : 交通インパクトの社会学</td>
+          <td class="publisher">ミネルヴァ書房</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+  <script>
+    let options = {
+      valueNames: ['date', 'ndc', 'title', 'publisher']
+    };
+    let userList = new List('books', options);
+  </script>
+</body>
+
+</html>
